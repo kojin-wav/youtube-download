@@ -34,10 +34,8 @@ def download_audio(url, output_path="downloads/audio", audio_format="mp3", quali
             'preferredquality': quality,
         }],
         'progress_hooks': [progress_hook],
+        'nocheckcertificate': True,  # Skip SSL certificate verification
     }
-
-    if no_check_certificate:
-        ydl_opts['nocheckcertificate'] = True
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
